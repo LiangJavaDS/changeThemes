@@ -1,21 +1,20 @@
-import { Link, Outlet } from 'umi';
+import { useEffect } from 'react';
 import styles from './index.less';
+import { ThemeKey } from './themeConfig';
+import { changeTheme, getThemeConfig, getThemeKey, initTheme, setThemeKey } from './utils';
 
 export default function Layout() {
+
+  useEffect(() => initTheme(), [])
+
+  const onClick = () => {
+    const themeKey = getThemeKey();
+    const newKey = themeKey === ThemeKey.themeA ? ThemeKey.themeB : ThemeKey.themeA
+    setThemeKey(newKey)
+    changeTheme(newKey, getThemeConfig(newKey))
+  }
+
   return (
-    <div className={styles.navs}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/docs">Docs</Link>
-        </li>
-        <li>
-          <a href="https://github.com/umijs/umi">Github</a>
-        </li>
-      </ul>
-      <Outlet />
-    </div>
+    <button className={styles.btn} onClick={onClick}>换肤</button>
   );
 }

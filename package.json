@@ -1,6 +1,6 @@
 {
   "private": true,
-  "author":"LiangJavaDS <954157304@qq.com>",
+  "author": "LiangJavaDS <954157304@qq.com>",
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
@@ -9,6 +9,8 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "antd": "^5.0.0",
+    "rc-util": "^5.24.5",
     "umi": "^4.0.32"
   },
   "devDependencies": {
